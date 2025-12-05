@@ -168,9 +168,9 @@ email at jhelasseter@gmail.com
       file.  Hence an additional invocation of Jasmin is required to produce 
       actual, running code.
     - In many places, the quality of the generated code may be terrible.  There 
-      is no effort at code-improving transformations, and there is only 
-      rudimentary made to control local variable allocation and to limit the 
-      size of a method's runtim stack.  In every case, I opted for clarity of 
+      is no effort at code-improving transformations, and there is only a
+      rudimentary effort made to control local variable allocation and to limit the 
+      size of a method's runtime stack.  In every case, I opted for clarity of 
       exposition over concerns of performance or memory.
     - Although they are correctly handled during semantic analysis, the JVM code 
       generator does not correctly support lexical closures, so any nested 
