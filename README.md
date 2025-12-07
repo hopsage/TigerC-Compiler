@@ -11,7 +11,7 @@ programming language, as described by Andrew Appel in his textbook trio *Modern
 Compiler Implementation in Java [/ML/C]*.  See also, Stephen Edwards'
 documentation of the language, available (as of 04/23/2020) at 
 
-http://www.cs.columbia.edu/~sedwards/classes/2002/w4115/tiger.pdf
+[http://www.cs.columbia.edu/~sedwards/classes/2002/w4115/tiger.pdf](http://www.cs.columbia.edu/~sedwards/classes/2002/w4115/tiger.pdf)
 
 This is the reference implementation for the semester-long project I built for
 CPSC 433 (Compilers), as taught in the Spring semesters of 2014, 2016, 2018, and
@@ -32,13 +32,13 @@ and some of the stickier parts of language translation, such as procedure/functi
 setup, execution, and tear down (in Appel's text, the `procEntryExit*()` methods).
 
 This structure also allows for some slick code reuse, using Java's generics mechanism, 
-a fact that helpos to further drive home the connections between the interpreter and
+a fact that helps to further drive home the connections between the interpreter and
 these stages of translation.  Finally, it also let me work in brief discussions of 
-two of my favorite topics abstract interpretation (the theoretical basis for type
+two of my favorite topics, abstract interpretation (the theoretical basis for type
 checking) and partial evaluation (the theoretical guarantee that code generation is
 possible).  This is explained in more detail in a SIGCSE paper I wrote, "The Interpreter
 In An Undergraduate Compilers Course" *(SIGCSE 2015)*.  A PDF copy of that paper is
-incuded in the `doc` directory, though some of the specifics of the design choices
+incuded in the `doc` directory, though a few specifics of the design choices
 have changed since that time.
 
 ### Support For The Tiger Language
@@ -70,18 +70,18 @@ visible by invoking `ant -projecthelp`):
 * `clean`        - Remove build directory (opt: generated src files and dist).  
                  NOTE: If you want it to also delete the generated lexer and 
                  parser source code files and/or the distribution JAR files 
-                 (built by dist and dist_interp), you can uncommment 
+                 (built by `dist` and `dist_interp`), you can uncommment 
                  a couple of lines in this target.
- * `dist`        - Build executable jar for the compiler, dist/tigerc.jar
- * `dist_interp` - Build executable jar for the interpreter, dist/tigeri.jar
+ * `dist`        - Build executable jar for the compiler, `dist/tigerc.jar`.
+ * `dist_interp` - Build executable jar for the interpreter, `dist/tigeri.jar`.
  * `genLex`      - Generate the lexer from JFlex specification, 
-                 tigerc/syntax/parse/TigerLex.java
+                 `tigerc/syntax/parse/TigerLex.java`.
  * `genParse`    - Generate the parser from CUP specification,
-                 tigerc/syntax/parse/TigerParse.java and TigerSyms.java
- * `stdlib`      - Make jar file of Tiger standard library, lib/tiger_stdlib.jar
- * `testLexer`   - Compile and run test file for TigerLex:  this was part of what I gave
+                 `tigerc/syntax/parse/TigerParse.java` and `TigerSyms.java`.
+ * `stdlib`      - Make jar file of Tiger standard library, `lib/tiger_stdlib.jar`.
+ * `testLexer`   - Compile and run test file for `TigerLex`:  this was part of what I gave
                    my students in the lexical analysis assignments
- * `testParser`  - Compile and run test file for TigerParse:  another student distribution
+ * `testParser`  - Compile and run test file for `TigerParse`:  another student distribution
  * `testSemant`  - Compile and run test file for semantic analysis:  likewise
  
 The default target is `dist`.
@@ -108,8 +108,8 @@ from the result.
 * `java-cup-11a-runtime.jar`  - Runtime libraries used by the generated parser
 * `jflex-1.6.1.jar`           - The JFlex lexical analyzer generator
 * `tiger_stdlib.jar`          - The standard library of procedures for Tiger 
-                              programs.  See A. Appel, _Modern Compiler 
-                              Implementation in [C/Java/ML]_.
+                              programs.  See A. Appel, *Modern Compiler 
+                              Implementation in [C/Java/ML]*.
 
 ## RUNNING 
 
@@ -125,14 +125,14 @@ from the result.
     java -jar tigerc.jar  myprogram.tig
    ```
     
-    (This produces the file Myprogram.j, in the same folder as myprogram.tig.)
+    (This produces the file `Myprogram.j`, in the same folder as `myprogram.tig`)
     
    ```
     java -jar jasmin.jar Myprogram.j
    ```
     
-    (This will produce an executable class file, Myprogram.class, in the current
-     folder.)
+    (This will produce an executable class file, `Myprogram.class`, in the current
+     folder)
     
 * Running compiled binaries requires the Tiger Standard Library be added to the 
   JRE classpath:
@@ -149,7 +149,7 @@ As of July 1st, 2020, this project will be archived long term on GitHub, at
    ```
     
 For the foreseeable future, you can reach me either through that page or by 
-email at jhelasseter@gmail.com
+email at [`jhelasseter@gmail.com`](mailto:jhelasseter@gmail.com)
 
 ## KNOWN BUGS, LIMITATIONS
 
@@ -159,7 +159,11 @@ email at jhelasseter@gmail.com
       to improving it.
     - The Tiger standard library is fully supported, but some of the assumptions 
       that are made in doing so will make it challenging to support 
-      general-purpose importing of resources from other namespaces.  In particular, the source code in tigerc.semant.interp.ExternFunEntry only supports translation between strings and integer values, along with methods of void return type.   As of this writing (04/23/2020), external methods that interact with Tiger arrays and records are not supported.
+      general-purpose importing of resources from other namespaces.  In particular,
+      the source code in `tigerc.semant.interp.ExternFunEntry` only supports translation
+      between strings and integer values, along with methods of `void` return type.
+      As of this writing (04/23/2020), external methods that interact with Tiger
+      arrays and records are not supported.
 * `tigerc`
     - Because this is designed to be a teaching compiler project rather than a 
       production-grade effort, the code generator produces Jasmin rather than 
